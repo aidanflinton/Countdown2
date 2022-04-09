@@ -1,15 +1,18 @@
 import React from "react";
+import FoodItems from "./FoodItems.js"
 
-const MenuBox = (props) => {
+const Meals = (props) => {
   return (
     <>
-      <h1>{props.meal}</h1>
-      <p>{props.food} (${props.price})</p>
+      <h1>{props.name}</h1>
+      <div className="App">
+        {props.meal.map((item) => <FoodItems option ={item.food} cost = {item.price} veggie = {item.vegetarian}/>)}
+    </div>
     </>
   )
 }
 
-export default MenuBox
+export default Meals
 
 /*
 {
@@ -29,4 +32,10 @@ export default MenuBox
     {"food": "chili", "price": 8.00, "vegetarian": false}
   ]
 }
+
+
+
+    <div className="App">
+      {props.map((food) => <FoodItems food ={props.food} price = {props.price}/>)};
+    </div>
 */

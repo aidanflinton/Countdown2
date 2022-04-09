@@ -1,9 +1,10 @@
 import './App.css';
 import { useState } from "react"
-import MenuBox from "./MenuBox.js"
+import MealItems from "./MealItems.js"
+import VegButton from "./VegButton"
 
 function App() {
-  const veg = useState(true);
+  let showVeg = useState(true);
   const menu = {
     "breakfast": [
       {"food": "pancakes", "price": 5.00, "vegetarian": true},
@@ -22,11 +23,15 @@ function App() {
     ]
   };
 
+  console.log(menu);
+
   return (
     <div className="App">
-      {menu.map((menu) => <MenuBox meal={menu.breakfast} food={menu.food} price={menu.price}/>)};
+      {Object.keys(menu).map((meal) => <MealItems name = {meal} meal={menu[meal]}/>)}
     </div>
   );
 }
 
 export default App;
+
+//["breakfast", "lunch", "dinner"];
