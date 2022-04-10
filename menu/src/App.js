@@ -27,7 +27,7 @@ function App() {
 
   return (
     <div className="App">
-      {Object.keys(menu).map((meal) => <MealItems name = {meal} meal={menu[meal]}/>)}
+      <VegButton theMenu={menu}/>
     </div>
   );
 }

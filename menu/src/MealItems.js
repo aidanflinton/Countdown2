@@ -2,11 +2,16 @@ import React from "react";
 import FoodItems from "./FoodItems.js"
 
 const Meals = (props) => {
+  let showItems = props.food;
+  if (props.onlyVeg) {
+    showItems = props.food.filter((item) => item.vegetarian === true)
+  }
+
   return (
     <>
       <h1>{props.name}</h1>
       <div className="App">
-        {props.meal.map((item) => <FoodItems option ={item.food} cost = {item.price} veggie = {item.vegetarian}/>)}
+        {showItems.map((item) => <FoodItems option={item.food} cost={item.price}/>)}
     </div>
     </>
   )
